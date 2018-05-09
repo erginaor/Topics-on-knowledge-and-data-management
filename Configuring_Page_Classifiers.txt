@@ -1,0 +1,59 @@
+Configuring Page Classifiers
+
+To configure a page classifier, you will need to create a new directory containing a file named pageclassifier.yml 
+specifying the type of classifier that should be used and its parameters. 
+
+pageclassifier.yml 
+
+//url_title
+type: title_regex
+parameters:
+  regular_expression: ".*sometext.*"
+
+//url_regex
+
+type: url_regex
+parameters:
+  regular_expressions: [
+    "https?://www\\.somedomain\\.com/forum/.*"
+    ".*/thread/.*",
+    ".*/archive/index.php/t.*",
+  ]
+
+//body_regex
+type: body_regex
+parameters:
+  regular_expressions:
+  - pattern1
+  - pattern2
+
+//regex
+type: regex
+parameters:
+    boolean_operator: AND|OR
+    url:
+      boolean_operator: AND|OR
+      regexes:
+        - pattern1-for-url
+        - pattern2-for-url
+    title:
+      boolean_operator: AND|OR
+      regexes:
+        - pattern1-for-title
+        - pattern2-for-title
+    content:
+      boolean_operator: AND|OR
+      regexes:
+        - pattern1-for-content
+
+//smile
+type: smile
+parameters:
+  features_file: pageclassifier.features
+  model_file: pageclassifier.model
+  stopwords_file: stoplist.txt
+  
+  Building a model for the smile page classifier
+  
+  To create the necessary configuration files, you will need to gather positive (relevant) and negative (irrelevant) examples of web pages to train the page classifier. You should store the HTML content of each web page in a plain text file. 
+  These files should be placed in two directories, named positive` and ``negative, which reside in another empty directory. 
