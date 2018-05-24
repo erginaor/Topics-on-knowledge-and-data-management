@@ -42,6 +42,8 @@ BUILD FAILED in 5m 24s
 
 //ERROR END
 
+Critical error: https://nodesecurity.io/advisories/654
+
 
 Run `npm i npm@latest -g`
 
