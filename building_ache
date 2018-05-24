@@ -1,0 +1,49 @@
+1. Using the pre-build docker image
+
+docker run -p 8080:8080 vidanyu/ache:latest
+
+Docker will automatically download the image from DockerHub and run it.
+
+2. Build the image on your machine
+
+git clone https://github.com/ViDA-NYU/ache.git
+cd ache
+docker build -t ache .
+
+where ache is the name of the image being built.
+
+ERROR:
+
+:ache-dashboard:npmInstallnpm ERR! write after end
+npm WARN notice [SECURITY] stringstream has 1 moderate vulnerability. Go here for more details: https://nodesecurity.io/advisories?search=stringstream&version=0.0.5 - Run `npm i npm@latest -g` to upgrade your npm version, and then `npm audit` to get more info.
+npm WARN notice [SECURITY] randomatic has 1 low vulnerability. Go here for more details: https://nodesecurity.io/advisories?search=randomatic&version=1.1.7 - Run `npm i npm@latest -g` to upgrade your npm version, and then `npm audit` to get more info.
+npm WARN notice [SECURITY] macaddress has 1 critical vulnerability. Go here for more details: https://nodesecurity.io/advisories?search=macaddress&version=0.2.8 - Run `npm i npm@latest -g` to upgrade your npm version, and then `npm audit` to get more info.
+npm WARN notice [SECURITY] lodash has 1 low vulnerability. Go here for more details: https://nodesecurity.io/advisories?search=lodash&version=4.17.4 - Run `npm i npm@latest -g` to upgrade your npm version, and then `npm audit` to get more info.
+npm WARN notice [SECURITY] deep-extend has 1 low vulnerability. Go here for more details: https://nodesecurity.io/advisories?search=deep-extend&version=0.4.2 - Run `npm i npm@latest -g` to upgrade your npm version, and then `npm audit` to get more info.
+npm ERR! write after end
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2018-05-22T20_12_53_909Z-debug.log
+ FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':ache-dashboard:npmInstall'.
+> Process 'command '/ache-src/ache-dashboard/.gradle/npm/npm-v5.8.0/bin/npm'' finished with non-zero exit value 1
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
+
+* Get more help at https://help.gradle.org
+
+5 actionable tasks: 5 executed
+BUILD FAILED in 5m 24s
+
+//ERROR END
+
+
+Run `npm i npm@latest -g`
+
+
+
